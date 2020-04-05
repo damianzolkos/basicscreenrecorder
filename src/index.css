@@ -1,0 +1,35 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+video {
+  position: relative;
+  max-width: 80%;
+  margin-top: 20px;
+}
+
+body {
+  background-color: #fff;
+  text-align: center;
+  height: 100%;
+}
+
+.header {
+  position: relative;
+  padding: 5px 0px;
+  background-color: #666;
+  min-height: 50px;
+  min-height: 100%;
+  color: #fff;
+}
+
+#przyciski {
+  position: fixed;
+  bottom: 0px;
+  min-width: 100%;
+  margin-top: 20px;
+  padding: 20px 0 20px;
+  background-color: #666;
+}
