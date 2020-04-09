@@ -1,10 +1,18 @@
-const { desktopCapturer, remote } = require('electron');
+const {
+  desktopCapturer,
+  remote
+} = require('electron');
 
-const { writeFile } = require('fs');
+const {
+  writeFile
+} = require('fs');
 
-const { dialog, Menu } = remote;
+const {
+  dialog,
+  Menu
+} = remote;
 
-Menu.setApplicationMenu(null);
+// Menu.setApplicationMenu(null);
 
 // Global state
 let mediaRecorder; // MediaRecorder instance to capture footage
@@ -31,6 +39,14 @@ stopBtn.onclick = e => {
 const videoSelectBtn = document.getElementById('videoSelectBtn');
 videoSelectBtn.onclick = getVideoSources;
 
+async function firstScreen() {
+  const inputSources = await desktopCapturer.getSources({
+    types: ['window', 'screen']
+  });
+  selectSource(inputSources[0]);
+}
+firstScreen();
+
 // Get the available video sources
 async function getVideoSources() {
   const inputSources = await desktopCapturer.getSources({
@@ -45,7 +61,6 @@ async function getVideoSources() {
       };
     })
   );
-
 
   videoOptionsMenu.popup();
 }
@@ -74,7 +89,9 @@ async function selectSource(source) {
   videoElement.play();
 
   // Create the Media Recorder
-  const options = { mimeType: 'video/webm; codecs=vp9' };
+  const options = {
+    mimeType: 'video/webm; codecs=vp9'
+  };
   mediaRecorder = new MediaRecorder(stream, options);
 
   // Register Event Handlers
@@ -98,7 +115,9 @@ async function handleStop(e) {
 
   const buffer = Buffer.from(await blob.arrayBuffer());
 
-  const { filePath } = await dialog.showSaveDialog({
+  const {
+    filePath
+  } = await dialog.showSaveDialog({
     buttonLabel: 'Save video',
     defaultPath: `vid-${Date.now()}.webm`
   });

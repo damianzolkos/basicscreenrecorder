@@ -2,34 +2,43 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding: 0;
   margin: 0;
-}
-
-video {
-  position: relative;
-  max-width: 80%;
-  margin-top: 20px;
-}
-
-body {
   background-color: #fff;
-  text-align: center;
+  width: 100%;
   height: 100%;
 }
 
-.header {
-  position: relative;
-  padding: 5px 0px;
-  background-color: #666;
-  min-height: 50px;
-  min-height: 100%;
-  color: #fff;
+#video_div {
+  position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  height: 80%;
+  width: 100%;
 }
 
-#przyciski {
-  position: fixed;
-  bottom: 0px;
-  min-width: 100%;
-  margin-top: 20px;
-  padding: 20px 0 20px;
+video {
+  display: block;
+  position: relative;
+  margin: 20px auto;
+  text-align: center;
+  height: calc(100% - 40px);
+  border: 2px solid #111;
+}
+
+#footer {
   background-color: #666;
+  position: absolute;
+  min-width: 100%;
+  height: 20%;
+  bottom: 0px;
+}
+
+.windows_list {
+  float: left;
+  margin: 20px;
+  max-width: 350px;
+}
+.controls {
+  float: right;
+  margin: 20px;
+  max-width: 150px;
 }
